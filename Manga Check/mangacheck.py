@@ -2,20 +2,25 @@
 
 import logging
 from openpyxl import Workbook 
+from openpyxl import load_workbook
 import webbrowser
 wb = Workbook()
 
 def xlsx_loader():
-    ws = wb.active
-    ws = wb.create_sheet("MySheet")
-    ws.title = "Mangas"
-    ws.sheet_properties.tabColor = "1072BA"
+    wb1 = load_workbook('Mangacheck.xlsx')
     logging.debug('xlsx loaded successfully')
-    wb.save("Mangacheck.xlsx")
+    logging.debug( wb1.sheetnames)
+    return (wb1)
+
+def webcheck():
+
+
+def MangaAdder():
+
 
 def main():
     logging.basicConfig(level=logging.DEBUG, format=' %(asctime)s - %(levelname)s - %(message)s')
     logging.debug('Start of program')
-    xlsx_loader()
+    wb1 = xlsx_loader()
 
 main()
